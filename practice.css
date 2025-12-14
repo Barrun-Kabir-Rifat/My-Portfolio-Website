@@ -1,0 +1,171 @@
+/* ========================================================
+   HERO — Screenshot Layout + Responsive + Round Image Kept
+========================================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding-top: 90px; /* keep clearance for header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* ===== BLACKHOLE TOP BANNER ===== */
+.blackhole-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+    mix-blend-mode: lighten;
+    pointer-events: none;
+}
+
+.blackhole-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: -12%;   /* controls how much of the hole is visible */
+}
+
+/* Text centered vertically on the left */
+.hero-info {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 520px;
+    z-index: 5;
+}
+
+/* Round image centered in the hero */
+.hero-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+
+
+.hero-image img {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ===== RIGHT-SIDE VIDEO / ICONS ===== */
+.skills-video-box {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    pointer-events: none;
+}
+
+.skills-video {
+    height: 680px;
+    max-width: 480px;
+    object-fit: contain;
+    mix-blend-mode: lighten;
+}
+
+/* ========================================================
+   RESPONSIVE BEHAVIOR
+========================================================= */
+
+/* ===== Tablets (1000px - 1200px) ===== */
+@media (max-width: 1200px) {
+    .skills-video {
+        height: 480px;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* ===== Small Tablets / Large Phones ===== */
+@media (max-width: 900px) {
+    .hero-image {
+        left: 50%;
+        top: 45%;
+    }
+
+    .skills-video {
+        height: 380px;
+    }
+
+    .hero-info {
+        bottom: 10%;
+    }
+}
+
+/* ===== Mobile (≤700px) ===== */
+@media (max-width: 700px) {
+    .hero {
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    /* Place avatar in center */
+    .hero-image {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin-top: 40px;
+    }
+
+    .hero-image img {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Move text below image */
+    .hero-info {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        max-width: 90%;
+        margin-top: 20px;
+    }
+
+    /* Right video smaller + pushed down */
+    .skills-video-box {
+        bottom: 0;
+        right: 0;
+        transform: scale(0.7);
+    }
+
+    .blackhole-box video {
+        margin-top: -20%;
+    }
+}
+
+/* ===== Extra Small Phones (≤480px) ===== */
+@media (max-width: 480px) {
+    .hero-image img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skills-video-box {
+        display: none; /* too crowded on very small screens */
+    }
+
+    .hero-info h1 {
+        font-size: 32px;
+    }
+}
