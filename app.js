@@ -1,39 +1,64 @@
-const video1 = document.getElementById('projectVideo1');
-const video2 = document.getElementById('projectVideo2');
-const video3 = document.getElementById('projectVideo3');
+// =======================
+// PROJECT VIDEO HOVER / TOUCH
+// =======================
 
-// Sidebar elements //
-const sideBar = document.querySelector('.sidebar');
-const menu = document.querySelector('.menu-icon');
-const closeIcon = document.querySelector('.close-icon')
+const videos = document.querySelectorAll('.project-vidbox video');
 
+videos.forEach(video => {
+    const hoverSign = video.closest('.project-vidbox')?.querySelector('.hover-sign');
 
-const hoverSign = document.querySelector('.hover-sign');
+    const playVideo = () => {
+        video.play();
+        hoverSign?.classList.add('active');
+    };
 
-const videoList =[video1, video2, video3];
+    const pauseVideo = () => {
+        video.pause();
+        hoverSign?.classList.remove('active');
+    };
 
-videoList.forEach (function(video){
-    video.addEventListener("mouseover", function(){
-        video.play()
-        hoverSign.classList.add("active")
-    })
-    video.addEventListener("mouseout", function(){
-    video.pause();
-    hoverSign.classList.remove("active")
-})
-})
+    // Desktop
+    video.addEventListener('mouseenter', playVideo);
+    video.addEventListener('mouseleave', pauseVideo);
 
-// Sidebar elements //
-menu.addEventListener("click", function(){
-    sideBar.classList.remove("close-sidebar")
-    sideBar.classList.add("open-sidebar")
+    // Mobile
+    video.addEventListener('touchstart', playVideo);
+    video.addEventListener('touchend', pauseVideo);
 });
 
-closeIcon.addEventListener("click", function(){
-    sideBar.classList.remove("open-sidebar");
-    sideBar.classList.add("close-sidebar");
-    
-})
+// =======================
+// SIDEBAR (DESKTOP)
+// =======================
+
+const sideBar = document.querySelector('.sidebar');
+const menuIcon = document.querySelector('.menu-icon');
+const closeIcon = document.querySelector('.close-icon');
+
+menuIcon?.addEventListener('click', () => {
+    sideBar?.classList.remove('close-sidebar');
+    sideBar?.classList.add('open-sidebar');
+});
+
+closeIcon?.addEventListener('click', () => {
+    sideBar?.classList.remove('open-sidebar');
+    sideBar?.classList.add('close-sidebar');
+});
+
+// =======================
+// MOBILE MENU
+// =======================
+
+const menuBtn = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('open');
+});
+
+// =======================
+// EXTERNAL LINKS SAFETY
+// =======================
+
 document.querySelectorAll('a[href]').forEach(link => {
     if (!link.getAttribute('href').startsWith('#')) {
         link.setAttribute('target', '_blank');
