@@ -2357,7 +2357,7 @@ header ul li a:hover {
    SIDEBAR CP ICON FIX (MOBILE ONLY)
 ===================================== */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 918px) {
 
     .social-sidebar {
         display: flex;
@@ -2403,6 +2403,242 @@ header ul li a:hover {
     /* Social icons pinned at bottom */
     .social-sidebar {
         color:#008ead;
+    }
+}
+
+
+/* =====================================
+   TABLET PORTRAIT FIX (iPad 768px)
+===================================== */
+
+@media screen and (max-width: 1024px) and (min-width: 700px) {
+
+    /* Reduce avatar/logo size */
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* Move avatar slightly left */
+    .hero-image {
+        left: 38%;
+        top: 42%;
+    }
+
+    /* Reduce globe / skills video size */
+    .skills-video-box {
+        width: 300px;
+        height: 300px;
+        right: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+/* ==================================================
+   TABLET PORTRAIT (768px–1024px) – HARD FIX
+   Prevent hero overlap WITHOUT hiding video
+================================================== */
+
+@media screen and (min-width: 768px) and (max-width: 918px) {
+
+    /* FORCE hero to stack */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 40px !important;
+        padding-top: 120px !important;
+        height: auto !important;
+    }
+
+    /* RESET absolute positioning COMPLETELY */
+    .hero-image,
+    .skills-video-box {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+    }
+
+    /* TEXT */
+    .hero-info {
+        margin: 0 !important;
+        max-width: 620px !important;
+        text-align: center !important;
+    }
+
+    /* LOGO */
+    .hero-image img {
+        width: 220px !important;
+        height: 220px !important;
+    }
+
+    /* VIDEO */
+    .skills-video-box {
+        width: 320px !important;
+        height: 320px !important;
+    }
+}
+/* =====================================
+   TABLET HERO TEXT – FINAL ALIGNMENT FIX
+===================================== */
+
+@media screen and (min-width: 768px) and (max-width: 918px) {
+
+    .hero-info h1,
+    .hero-info p {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .hero-info p {
+        max-width: 520px !important;
+    }
+}
+/* =====================================
+   TABLET HERO BADGE – VISIBILITY FIX
+===================================== */
+
+@media screen and (min-width: 700px) and (max-width: 918px) {
+
+    .hero-info .hero-info-title {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        color: #ffffff !important;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 0 14px rgba(114, 161, 222, 0.9);
+        border-color: rgba(114, 161, 222, 0.9);
+    }
+}
+/* =====================================
+   DESKTOP MEDIUM (1366–1440) HERO LOGO TWEAK
+===================================== */
+
+@media screen and (min-width: 1300px) and (max-width: 1500px) {
+
+    .hero-image {
+        left: 46%;
+    }
+}
+/* =====================================
+   DESKTOP MEDIUM (1366–1440) SCROLL INDICATOR TWEAK
+===================================== */
+
+@media screen and (min-width: 1300px) and (max-width: 1500px) {
+
+    .scroll-down {
+        left: 55%;
+    }
+}
+
+/* =====================================
+   DESKTOP COMPACT (1201–1350) HERO FIX
+===================================== */
+
+@media screen and (min-width: 1201px) and (max-width: 1350px) {
+
+    /* Slightly reduce text width */
+    .hero-info {
+        max-width: 480px;
+    }
+
+    /* Push logo right to avoid text overlap */
+    .hero-image {
+        left: 48%;
+    }
+
+    /* Push skills globe further right */
+    .skills-video-box {
+        right: 2%;
+        width: 320px;
+        height: 320px;
+    }
+}
+@media screen and (max-width: 480px) {
+
+    /* Show hero video on mobile */
+    .skills-video-box {
+        display: flex;
+        position: relative;
+        width: 220px;
+        height: 220px;
+        margin: 20px auto 0;
+        top: auto;
+        right: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .skills-video {
+        width: 120%;
+        height: 120%;
+    }
+}
+/* ===========================
+   HERO STACK FIX (700px–770px)
+   Match mobile-like layout
+=========================== */
+
+@media (min-width: 700px) and (max-width: 770px) {
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 100px;
+        gap: 24px;
+    }
+
+    /* Text block */
+    .hero-info {
+        max-width: 92%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .hero-info h1,
+    .hero-info p {
+        text-align: center;
+    }
+
+    .hero-info button {
+        margin: 0 auto;
+    }
+
+    /* RIFAT logo */
+    .hero-image {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* Globe / skills video */
+    .skills-video-box {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 260px;
+        height: 260px;
+        margin-top: 20px;
+    }
+
+    /* Scroll indicator spacing */
+    .scroll-down {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        margin: 30px auto 0;
     }
 }
 
